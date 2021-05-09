@@ -42,14 +42,14 @@ div {
     border-radius: 5px 5px;
 }
 
-#kép {
+#kép_keret {
     flex: 0 0 auto;
     border: 1px solid black;
     border-radius: 5px 5px;
     width: 50%;
 }
 
-#kép1 {
+#kép {
     margin: 3px;
     width: 100%;
     object-fit: contain;
@@ -74,11 +74,11 @@ div {
 }
 
 .jó {
-    /*background-color: green;*/
+    background-color: green;
 }
 
 .rossz {
-    /*background-color: red;*/
+    background-color: red;
 }
 
 @media screen and (max-width: 800px){
