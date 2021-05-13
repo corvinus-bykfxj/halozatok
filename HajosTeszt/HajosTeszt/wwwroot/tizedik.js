@@ -6,11 +6,11 @@ var nextQuestion = 1; //A következő kérdés száma a teljes listában
 var timeoutHandler;
 
 
-//Oldal betöltésénél meghívjuk a függvényeket
-window.onload = init();
+//Oldal betöltésénél meghívjuk a függvényeket (az init helyett simán {} között be lehetne írni annak a tartalmát is)
+document.addEventListener("DOMContentLoaded", init);
 
-//Másik megoldás (az init helyett simán {} között be lehetne írni annak a tartalmát is)
-//document.addEventListener(""DOMContentLoaded", init);
+//Másik megoldás 
+//window.onload = init();
 
 
 
@@ -40,7 +40,7 @@ function init() {
     }
 
     //Első kérdések letöltése
-    if (nextQuestion === 1) {
+    if (!localStorage.getItem("hotList")) {
         for (let i = 0; i < questionsInHotList; i++) {
             kérdésBetöltés(nextQuestion, i);
             nextQuestion++;
@@ -72,6 +72,7 @@ function kérdésBetöltés(questionNumber, destination) {
                 displayedQuestion = 0;
                 kérdésMegjelenítés();
             }
+            
         }
         );
 }
@@ -84,7 +85,7 @@ function kérdésMegjelenítés() {
     document.getElementById("válasz2").innerText = kérdés.answer2;
     document.getElementById("válasz3").innerText = kérdés.answer3;
     if (kérdés.image) {
-        document.getElementById("kép").src = kérdés.image;
+        document.getElementById("kép").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
         document.getElementById("kép").style.display = "block";
     }
     else {
